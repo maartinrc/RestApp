@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import java.util.List;
 public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.PostreViewHolder> implements View.OnClickListener {
 
     List<Postre> postres;
+    int cantidad = 0;
 
     public RVPostreAdaptador(List<Postre> postres){
         this.postres = postres;
@@ -33,23 +35,45 @@ public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.Po
     }
 
     @Override
-    public void onBindViewHolder(PostreViewHolder postreViewHolder, int i){
+    public void onBindViewHolder(final PostreViewHolder postreViewHolder, int i){
         postreViewHolder.nombrePostre.setText(postres.get(i).nombre);
         postreViewHolder.descripcionPostre.setText(postres.get(i).descripcion);
         postreViewHolder.postreFoto.setImageResource(postres.get(i).fotoID);
         postreViewHolder.precioPostre.setText(postres.get(i).precio);
 
         postreViewHolder.btnOrdenPostre.setText("Agregar "+ postres.get(i).nombre+" a tu orden");
-        postreViewHolder.btnOrdenPostre.setOnClickListener(this);
+        postreViewHolder.btnOrdenPostre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()){
+                    case R.id.btn_agregar_orden_postre:
+
+                        break;
+                    case R.id.btn_mas:
+
+                        cantidad++;
+                        if (cantidad >15){
+                            cantidad = 15;
+                        }
+                        postreViewHolder.txtCantidad.setText(String.valueOf(cantidad));
+
+                        break;
+                    case R.id.btn_menos:
+                        cantidad--;
+                        if (cantidad < 0){
+                            cantidad = 0;
+                        }
+                        postreViewHolder.txtCantidad.setText(String.valueOf(cantidad));
+
+                        break;
+                }
+            }
+        });
     }
 
     @Override
     public void onClick(View v){
-        switch (v.getId()){
-            case R.id.btn_agregar_orden:
 
-                break;
-        }
     }
 
     @Override
@@ -65,6 +89,7 @@ public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.Po
         TextView precioPostre;
         ImageView postreFoto;
         Button btnOrdenPostre;
+        EditText txtCantidad;
 
         public PostreViewHolder(View itemView){
             super(itemView);
@@ -75,6 +100,7 @@ public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.Po
             postreFoto = itemView.findViewById(R.id.postre_foto);
 
             btnOrdenPostre = itemView.findViewById(R.id.btn_agregar_orden_postre);
+            txtCantidad = itemView.findViewById(R.id.txtCantidad);
         }
     }
 }

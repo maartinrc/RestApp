@@ -61,12 +61,43 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp" />
 
-            <Button
-                android:id="@+id/btn_agregar_orden"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#4CAF50"
-                android:textColor="#FFF" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_menos"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#4CAF50"
+                    android:text="@string/btnMenos"
+                    android:textColor="#FFF" />
+
+                <EditText
+                    android:id="@+id/txtCantidad"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:inputType=""
+                    android:enabled="false"
+                    />
+
+                <Button
+                    android:id="@+id/btn_mas"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#4CAF50"
+                    android:text="@string/btnMas"
+                    android:textColor="#FFF" />
+
+                <Button
+                    android:id="@+id/btn_agregar_orden"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#4CAF50"
+                    android:textColor="#FFF" />
+            </LinearLayout>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

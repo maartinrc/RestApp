@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.BebidaViewHolder> implements View.OnClickListener {
     List<Bebida> bebidas;
-
+    int cantidad = 0;
     public RVBebidaAdaptador(List<Bebida> bebidas){
         this.bebidas = bebidas;
     }
@@ -32,23 +33,45 @@ public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.Be
     }
 
     @Override
-    public void onBindViewHolder (BebidaViewHolder bebidaViewHolder, int i){
+    public void onBindViewHolder (final BebidaViewHolder bebidaViewHolder, int i){
         bebidaViewHolder.nombreBebida.setText(bebidas.get(i).nombre);
         bebidaViewHolder.descripcionBebida.setText(bebidas.get(i).descripcion);
         bebidaViewHolder.bebidaFoto.setImageResource(bebidas.get(i).fotoID);
         bebidaViewHolder.precioBebida.setText(bebidas.get(i).precio);
 
         bebidaViewHolder.btnOrdenBebida.setText("Agregar "+ bebidas.get(i).nombre + " a tu orden");
-        bebidaViewHolder.btnOrdenBebida.setOnClickListener(this);
+        bebidaViewHolder.btnOrdenBebida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()){
+                    case R.id.btn_agregar_orden_bebida:
+
+                        break;
+                    case R.id.btn_mas:
+
+                        cantidad++;
+                        if (cantidad >15){
+                            cantidad = 15;
+                        }
+                        bebidaViewHolder.txtCantidad.setText(String.valueOf(cantidad));
+
+                        break;
+                    case R.id.btn_menos:
+                        cantidad--;
+                        if (cantidad < 0){
+                            cantidad = 0;
+                        }
+                        bebidaViewHolder.txtCantidad.setText(String.valueOf(cantidad));
+
+                        break;
+                }
+            }
+        });
     }
 
     @Override
     public void onClick(View v){
-        switch (v.getId()){
-            case R.id.btn_agregar_orden_bebida:
 
-                break;
-        }
     }
 
     @Override
@@ -64,6 +87,7 @@ public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.Be
         TextView precioBebida;
         ImageView bebidaFoto;
         Button btnOrdenBebida;
+        EditText txtCantidad;
 
         public BebidaViewHolder(View itemView){
             super(itemView);
@@ -73,6 +97,7 @@ public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.Be
             precioBebida = itemView.findViewById(R.id.precio_bebida);
             bebidaFoto = itemView.findViewById(R.id.bebida_foto);
             btnOrdenBebida = itemView.findViewById(R.id.btn_agregar_orden_bebida);
+            txtCantidad = itemView.findViewById(R.id.txtCantidad);
 
         }
     }

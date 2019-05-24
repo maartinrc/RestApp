@@ -32,6 +32,19 @@ public class MenuActivity extends AppCompatActivity {
 
 
    public void extraeDatos(){
+        ConsumidorWeb cw = new ConsumidorWeb("postres",this);
 
+        cw.showAll();
+    }
+
+    private void inicilizarAdaptador(){
+        RVAdaptador adaptador = new RVAdaptador(platillo);
+        rv.setAdapter(adaptador);
+
+        RVBebidaAdaptador adaptadorB = new RVBebidaAdaptador(bebidas);
+        rvBebidas.setAdapter(adaptadorB);
+
+        RVPostreAdaptador adaptadorP = new RVPostreAdaptador(postres);
+        rvPostres.setAdapter(adaptadorP);
     }
 }

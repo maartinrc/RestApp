@@ -33,7 +33,7 @@ public class ConsumidorWeb {
 
 
 
-    private void crear() {
+    public void crear() {
 
         strq = new StringRequest(Request.Method.POST, BASEURL+"insertar",
                 new Response.Listener<String>() {
@@ -62,7 +62,7 @@ public class ConsumidorWeb {
 
     }
 
-    private void actualizar(String id) {
+    public void actualizar(String id) {
 
         strq = new StringRequest(Request.Method.POST, BASEURL+"actualizar/"+id,
                 new Response.Listener<String>() {
@@ -91,7 +91,7 @@ public class ConsumidorWeb {
 
     }
 
-    private void eliminar(String id) {
+    public void eliminar(String id) {
 
         strq = new StringRequest(Request.Method.DELETE, BASEURL+"eliminar/"+id,
                 new Response.Listener<String>() {
@@ -118,7 +118,7 @@ public class ConsumidorWeb {
         requestQueue.add(strq);
     }
 
-    private void show(String id) {
+    public void show(String id) {//mostrar por id
 
         strq = new StringRequest(Request.Method.GET, BASEURL+id,
                 new Response.Listener<String>() {
@@ -138,6 +138,32 @@ public class ConsumidorWeb {
                 Map<String, String> parametros = new HashMap<>();
 
               //  parametros.put("nombre", et_dato.getText().toString());
+                return parametros;
+            }
+        };
+
+        requestQueue.add(strq);
+    }
+    public void showAll() {//mostrar todos
+
+        strq = new StringRequest(Request.Method.GET, BASEURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("rta_servidor", response);
+                        Toast.makeText(ctx, response, Toast.LENGTH_LONG).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("error_servidor", error.toString());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams()  {
+                Map<String, String> parametros = new HashMap<>();
+
+                //  parametros.put("nombre", et_dato.getText().toString());
                 return parametros;
             }
         };

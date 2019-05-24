@@ -8,6 +8,8 @@
     <string name="menu_mesas">Mesas</string>
     <string name="navigation_drawer_open">Se abrió</string>
     <string name="navigation_drawer_close">Se cerró</string>
+    <string name="btnMas">+</string>
+    <string name="btnMenos">-</string>
 
     <!-- TODO FRAMENTS -->
 
@@ -32,5 +34,13 @@
     <string name="platillos">Platillos</string>
     <string name="bebidas">Bebidas</string>
     <string name="postres">Postres</string>
+
+    <!-- TODO ACTIVITIES - Menu -->
+    <string name="txtUsr">Usuario</string>
+    <string name="txtPass">Constraseña</string>
+    <string name="btnSesion">Iniciar sesion</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

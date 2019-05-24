@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_usr"
+            android:icon="@drawable/ic_usr"
+            android:title="@string/menu_usr" />
+        <item
+            android:id="@+id/nav_mesa"
+            android:icon="@drawable/ic_mesas"
+            android:title="@string/menu_mesas" />
+
+        <item
+            android:id="@+id/nav_comanda"
+            android:icon="@drawable/ic_comanda"
+            android:title="@string/menu_comandas" />
+
+        <item
+            android:id="@+id/nav_info"
+            android:icon="@drawable/ic_info"
+            android:title="@string/menu_info" />
+        <group
+            android:id="@+id/grupoLogout"
+            android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_cerrar_sesion"
+            android:title="@string/menu_logout" />
+    </group>
+
+    </group>
+
+</menu>

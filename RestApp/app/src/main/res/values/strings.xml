@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">RestApp</string>
+    <string name="menu_usr">Perfil</string>
+    <string name="menu_comandas">Comandas</string>
+    <string name="menu_info">Información</string>
+    <string name="menu_logout">Cerrar sesión</string>
+    <string name="menu_rest">Reast - App 2019</string>
+    <string name="menu_mesas">Mesas</string>
+    <string name="navigation_drawer_open">Se abrió</string>
+    <string name="navigation_drawer_close">Se cerró</string>
+
+    <!-- TODO FRAMENTS -->
+
+    <!-- TODO FRAMENTS - Usuario -->
+    <string name="nombre">Nombre(s)</string>
+    <string name="apeellidos">Apellidos</string>
+    <string name="ID">ID</string>
+    <string name="guardar">Guardar cambios</string>
+
+
+    <!-- TODO FRAMENTS - Mesas -->
+    <string name="nombreMesero">Nombre Mesero</string>
+    <string name="mensajeb">Bienvenido, </string>
+    <string name="seleccionaMesa">Selecciona una mesa:</string>
+    <string name="simbologia">Simbología</string>
+    <string name="mesaActivada">Activada</string>
+    <string name="mesaDesactivada">Desactivada</string>
+
+</resources>

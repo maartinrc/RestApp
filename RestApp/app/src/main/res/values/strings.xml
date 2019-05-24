@@ -27,6 +27,11 @@
     <string name="simbologia">Simbología</string>
     <string name="mesaActivada">Activada</string>
     <string name="mesaDesactivada">Desactivada</string>
+    <!-- TODO FRAMENTS - ComandaRecycler -->
+    <string name="comandaReclycerTitulo">Comanda mesa </string>
+    <string name="btnMasPlatillos">Agregar más platillos</string>
+    <string name="btnCerrarComanda">Cerrar comanda</string>
+
 
     <!-- TODO ACTIVITIES -->
 

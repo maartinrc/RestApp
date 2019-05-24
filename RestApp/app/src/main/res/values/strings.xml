@@ -26,4 +26,11 @@
     <string name="mesaActivada">Activada</string>
     <string name="mesaDesactivada">Desactivada</string>
 
+    <!-- TODO ACTIVITIES -->
+
+    <!-- TODO ACTIVITIES - Menu -->
+    <string name="platillos">Platillos</string>
+    <string name="bebidas">Bebidas</string>
+    <string name="postres">Postres</string>
+
 </resources>

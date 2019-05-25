@@ -91,7 +91,7 @@ public class MesasFragment2 extends Fragment {
                     Toast.makeText(context, " Listener botón " + v.getTag(), Toast.LENGTH_SHORT).show();
                     btnImg.setImageResource(R.drawable.ic_mesadis);
                     Intent i = new Intent(getContext(),MenuActivity.class);
-                    i.putExtra("mesa",v.getTag().toString());
+                    i.putExtra("mesa",Integer.parseInt(v.getTag().toString()));
                     i.putExtra("piso",2);
                     getContext().startActivity(i);
                     v.setEnabled(false);
@@ -121,7 +121,7 @@ public class MesasFragment2 extends Fragment {
                     Toast.makeText(context, " Listener botón " + v.getTag(), Toast.LENGTH_SHORT).show();
                     btnImg.setImageResource(R.drawable.ic_mesadis);
                     Intent i = new Intent(getContext(),MenuActivity.class);
-                    i.putExtra("mesa",v.getTag().toString());
+                    i.putExtra("mesa",Integer.parseInt(v.getTag().toString()));
                     i.putExtra("piso",2);
                     getContext().startActivity(i);
                     v.setEnabled(false);
@@ -151,7 +151,7 @@ public class MesasFragment2 extends Fragment {
                     Toast.makeText(context, " Listener botón " + v.getTag(), Toast.LENGTH_SHORT).show();
                     btnImg.setImageResource(R.drawable.ic_mesadis);
                     Intent i = new Intent(getContext(),MenuActivity.class);
-                    i.putExtra("mesa",v.getTag().toString());
+                    i.putExtra("mesa",Integer.parseInt(v.getTag().toString()));
                     i.putExtra("piso",2);
                     getContext().startActivity(i);
                     v.setEnabled(false);
@@ -182,7 +182,7 @@ public class MesasFragment2 extends Fragment {
                     Toast.makeText(context, " Listener botón " + v.getTag(), Toast.LENGTH_SHORT).show();
                     btnImg.setImageResource(R.drawable.ic_mesadis);
                     Intent i = new Intent(getContext(),MenuActivity.class);
-                    i.putExtra("mesa",v.getTag().toString());
+                    i.putExtra("mesa",Integer.parseInt(v.getTag().toString()));
                     i.putExtra("piso",2);
                     getContext().startActivity(i);
                     v.setEnabled(false);

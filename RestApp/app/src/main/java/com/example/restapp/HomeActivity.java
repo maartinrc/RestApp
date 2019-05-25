@@ -20,7 +20,9 @@ public class HomeActivity extends AppCompatActivity
         NavigationView.OnNavigationItemSelectedListener,
         DrawerLayout.DrawerListener,
         UsuarioFragment.OnFragmentInteractionListener,
-        MesasFragment.OnFragmentInteractionListener{
+        MesasFragment.OnFragmentInteractionListener,
+        SeccionesFragment.OnFragmentInteractionListener,
+        MesasFragment2.OnFragmentInteractionListener{
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -63,9 +65,13 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case R.id.nav_mesa:
                 title = R.string.menu_mesas;
-                Fragment fragmentMesas = MesasFragment.newInstance(getString(title),"");
+               /* Fragment fragmentMesas = MesasFragment.newInstance(getString(title),"");
                 FragmentManager fragmentManagerMesas = getSupportFragmentManager();
-                fragmentManagerMesas.beginTransaction().replace(R.id.home_content, fragmentMesas).commit();
+                fragmentManagerMesas.beginTransaction().replace(R.id.home_content, fragmentMesas).commit();*/
+
+               Fragment fragmentSecciones = SeccionesFragment.newInstance(getString(title),"");
+               FragmentManager fragmentManagerSecciones = getSupportFragmentManager();
+               fragmentManagerSecciones.beginTransaction().replace(R.id.home_content,fragmentSecciones).commit();
                 break;
             case R.id.nav_comanda:
                 title = R.string.menu_comandas;
@@ -75,6 +81,9 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case R.id.nav_logout:
                 title = R.string.menu_logout;
+                //borrar shared preferences
+                //Intent a Main activity que verificará si hay un shared preferences con id y pass
+                ///si no, Intent al login
                 break;
             default:
                 throw new IllegalArgumentException("menu option not implemented!!");

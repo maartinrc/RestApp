@@ -19,7 +19,7 @@ import android.view.ViewGroup;
  * Use the {@link SeccionesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SeccionesFragment extends Fragment {
+public class SeccionesFragment extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -72,9 +72,12 @@ public class SeccionesFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_secciones, container, false);
+        SeccionesFragmentAdaptador sfa = new SeccionesFragmentAdaptador(getContext(), getChildFragmentManager());
         viewPager = view.findViewById ( R.id.viewpager);
+        viewPager.setAdapter(sfa);
+       viewPager.setOffscreenPageLimit(2);
         tabLayout = view.findViewById ( R .id.tablayout);
-        tabLayout . setupWithViewPager (viewPager);
+        tabLayout.setupWithViewPager (viewPager);
         return view;
     }
 
@@ -90,6 +93,7 @@ public class SeccionesFragment extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
+
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");

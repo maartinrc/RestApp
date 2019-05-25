@@ -15,7 +15,8 @@
 
     <!-- TODO FRAMENTS - Usuario -->
     <string name="nombre">Nombre(s)</string>
-    <string name="apeellidos">Apellidos</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="contrasenia">Contraseña</string>
     <string name="ID">ID</string>
     <string name="guardar">Guardar cambios</string>
 

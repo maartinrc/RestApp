@@ -67,12 +67,27 @@
                 android:id="@+id/textView3"
                 android:layout_width="390dp"
                 android:layout_height="44dp"
-                android:text="@string/apeellidos"
+                android:text="@string/apellidos"
                 android:layout_marginTop="8dp"
                 android:gravity="bottom" />
 
             <EditText
                 android:id="@+id/txtApellidos"
+                android:layout_width="390dp"
+                android:layout_height="44dp"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="390dp"
+                android:layout_height="44dp"
+                android:text="@string/contrasenia"
+                android:layout_marginTop="8dp"
+                android:gravity="bottom" />
+
+            <EditText
+                android:id="@+id/txtContrasenia"
                 android:layout_width="390dp"
                 android:layout_height="44dp"
                 android:ems="10"

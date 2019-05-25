@@ -31,10 +31,15 @@
     <string name="piso1">Piso 1</string>
     <string name="piso2">Piso 2</string>
     <!-- TODO FRAMENTS - ComandaRecycler -->
-    <string name="comandaReclycerTitulo">Comanda mesa </string>
+    <string name="comandaReclycerTitulo">Comanda de la mesa </string>
     <string name="btnMasPlatillos">Agregar más platillos</string>
     <string name="btnCerrarComanda">Cerrar comanda</string>
+    <string name="btnVerComanda">Ver comanda</string>
 
+    <!-- TODO FRAMENTS - Comanda-->
+    <string name="htxtcant">Cantidad</string>
+    <string name="htxtprod">Producto</string>
+    <string name="htxtprecio">Precio</string>
 
     <!-- TODO ACTIVITIES -->
 

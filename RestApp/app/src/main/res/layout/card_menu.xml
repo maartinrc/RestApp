@@ -70,7 +70,7 @@
                     android:id="@+id/btn_menos"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#4CAF50"
+                    android:backgroundTint="@color/colorPrimary"
                     android:text="@string/btnMenos"
                     android:textColor="#FFF" />
 
@@ -87,7 +87,7 @@
                     android:id="@+id/btn_mas"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#4CAF50"
+                    android:backgroundTint="@color/colorPrimary"
                     android:text="@string/btnMas"
                     android:textColor="#FFF" />
 
@@ -95,7 +95,7 @@
                     android:id="@+id/btn_agregar_orden"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#4CAF50"
+                    android:backgroundTint="@color/colorPrimaryDark"
                     android:textColor="#FFF" />
             </LinearLayout>
 

@@ -51,7 +51,7 @@ public class ConsumidorWeb {
             @Override
             protected Map<String, String> getParams()  {
                 Map<String, String> parametros = new HashMap<>();
-
+                // agregar parámetros a insertar **depende de a que tabla***
               //  parametros.put("nombre", et_dato.getText().toString());
 
                 return parametros;

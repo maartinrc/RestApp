@@ -1,4 +1,4 @@
-package com.example.restapp;
+package com.example.restapp.adaptadores;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.restapp.R;
+import com.example.restapp.pojos.Postre;
 
 import java.util.List;
 
@@ -36,12 +39,12 @@ public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.Po
 
     @Override
     public void onBindViewHolder(final PostreViewHolder postreViewHolder, int i){
-        postreViewHolder.nombrePostre.setText(postres.get(i).nombre);
-        postreViewHolder.descripcionPostre.setText(postres.get(i).descripcion);
-        postreViewHolder.postreFoto.setImageResource(postres.get(i).fotoID);
-        postreViewHolder.precioPostre.setText(postres.get(i).precio);
+        postreViewHolder.nombrePostre.setText(postres.get(i).getNombre());
+        postreViewHolder.descripcionPostre.setText(postres.get(i).getDescripcion());
+        postreViewHolder.postreFoto.setImageResource(postres.get(i).getFotoID());
+        postreViewHolder.precioPostre.setText(postres.get(i).getPrecio());
 
-        postreViewHolder.btnOrdenPostre.setText("Agregar "+ postres.get(i).nombre+" a tu orden");
+        postreViewHolder.btnOrdenPostre.setText("Agregar "+ postres.get(i).getNombre()+" a tu orden");
         postreViewHolder.btnOrdenPostre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

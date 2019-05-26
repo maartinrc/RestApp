@@ -1,4 +1,4 @@
-package com.example.restapp;
+package com.example.restapp.adaptadores;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.restapp.R;
+import com.example.restapp.pojos.Platillo;
 
 import java.util.List;
 
@@ -37,12 +40,12 @@ public class RVAdaptador extends RecyclerView.Adapter<RVAdaptador.PlatilloViewHo
 
     @Override
     public void onBindViewHolder(final PlatilloViewHolder platilloViewHolder, int i){
-        platilloViewHolder.nombrePlatillo.setText(platillos.get(i).nombre);
-        platilloViewHolder.descripcionPlatillo.setText(platillos.get(i).descripcion);
-        platilloViewHolder.platilloFoto.setImageResource(platillos.get(i).fotoID);
-        platilloViewHolder.precioPlatillo.setText(platillos.get(i).precio);
+        platilloViewHolder.nombrePlatillo.setText(platillos.get(i).getNombre());
+        platilloViewHolder.descripcionPlatillo.setText(platillos.get(i).getDescripcion());
+        platilloViewHolder.platilloFoto.setImageResource(platillos.get(i).getFotoID());
+        platilloViewHolder.precioPlatillo.setText(platillos.get(i).getPrecio());
 
-        platilloViewHolder.btnOrden.setText("agregar "+platillos.get(i).nombre+" a tu orden");
+        platilloViewHolder.btnOrden.setText("agregar "+platillos.get(i).getNombre()+" a tu orden");
         platilloViewHolder.btnOrden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

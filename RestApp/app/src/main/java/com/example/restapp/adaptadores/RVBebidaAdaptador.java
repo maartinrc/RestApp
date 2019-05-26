@@ -1,4 +1,4 @@
-package com.example.restapp;
+package com.example.restapp.adaptadores;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.restapp.R;
+import com.example.restapp.pojos.Bebida;
 
 import java.util.List;
 
@@ -34,12 +37,12 @@ public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.Be
 
     @Override
     public void onBindViewHolder (final BebidaViewHolder bebidaViewHolder, int i){
-        bebidaViewHolder.nombreBebida.setText(bebidas.get(i).nombre);
-        bebidaViewHolder.descripcionBebida.setText(bebidas.get(i).descripcion);
-        bebidaViewHolder.bebidaFoto.setImageResource(bebidas.get(i).fotoID);
-        bebidaViewHolder.precioBebida.setText(bebidas.get(i).precio);
+        bebidaViewHolder.nombreBebida.setText(bebidas.get(i).getNombre());
+        bebidaViewHolder.descripcionBebida.setText(bebidas.get(i).getDescripcion());
+        bebidaViewHolder.bebidaFoto.setImageResource(bebidas.get(i).getFotoID());
+        bebidaViewHolder.precioBebida.setText(bebidas.get(i).getPrecio());
 
-        bebidaViewHolder.btnOrdenBebida.setText("Agregar "+ bebidas.get(i).nombre + " a tu orden");
+        bebidaViewHolder.btnOrdenBebida.setText("Agregar "+ bebidas.get(i).getNombre() + " a tu orden");
         bebidaViewHolder.btnOrdenBebida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

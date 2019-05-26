@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".MenuActivity"/>
-        <activity android:name=".HomeActivity">
+        <activity android:name=".vistas.MainActivity"></activity>
+        <activity android:name=".vistas.MenuActivity"/>
+        <activity android:name=".vistas.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

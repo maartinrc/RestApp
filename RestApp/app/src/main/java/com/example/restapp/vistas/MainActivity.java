@@ -1,4 +1,4 @@
-package com.example.restapp;
+package com.example.restapp.vistas;
 
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;

@@ -1,9 +1,11 @@
-package com.example.restapp;
+package com.example.restapp.vistas;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.restapp.R;
 
 public class SeccionesFragmentAdaptador extends FragmentPagerAdapter {
     private Context mcontext;

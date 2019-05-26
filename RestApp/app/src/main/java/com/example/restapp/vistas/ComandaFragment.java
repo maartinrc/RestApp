@@ -1,4 +1,4 @@
-package com.example.restapp;
+package com.example.restapp.vistas;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,16 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.restapp.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomeContentFragment.OnFragmentInteractionListener} interface
+ * {@link ComandaFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomeContentFragment#newInstance} factory method to
+ * Use the {@link ComandaFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeContentFragment extends Fragment{
+public class ComandaFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +31,7 @@ public class HomeContentFragment extends Fragment{
 
     private OnFragmentInteractionListener mListener;
 
-    public HomeContentFragment() {
+    public ComandaFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +41,11 @@ public class HomeContentFragment extends Fragment{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeContentFragment.
+     * @return A new instance of fragment ComandaFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeContentFragment newInstance(String param1, String param2) {
-        HomeContentFragment fragment = new HomeContentFragment();
+    public static ComandaFragment newInstance(String param1, String param2) {
+        ComandaFragment fragment = new ComandaFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +66,7 @@ public class HomeContentFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_content, container, false);
+        return inflater.inflate(R.layout.fragment_comanda, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -90,8 +92,6 @@ public class HomeContentFragment extends Fragment{
         super.onDetach();
         mListener = null;
     }
-
-
 
     /**
      * This interface must be implemented by activities that contain this

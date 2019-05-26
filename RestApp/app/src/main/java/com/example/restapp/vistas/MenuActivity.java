@@ -1,10 +1,18 @@
-package com.example.restapp;
+package com.example.restapp.vistas;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
+
+import com.example.restapp.R;
+import com.example.restapp.adaptadores.RVAdaptador;
+import com.example.restapp.adaptadores.RVBebidaAdaptador;
+import com.example.restapp.adaptadores.RVPostreAdaptador;
+import com.example.restapp.pojos.Bebida;
+import com.example.restapp.pojos.Platillo;
+import com.example.restapp.pojos.Postre;
 
 import java.util.List;
 
@@ -48,9 +56,8 @@ public class MenuActivity extends AppCompatActivity {
 
 
    public void extraeDatos(){
-        ConsumidorWeb cw = new ConsumidorWeb("postres",this);
 
-        cw.showAll();
+
     }
 
     private void inicilizarAdaptador(){

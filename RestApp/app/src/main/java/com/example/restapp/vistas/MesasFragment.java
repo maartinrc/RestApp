@@ -1,6 +1,5 @@
-package com.example.restapp;
+package com.example.restapp.vistas;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -15,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.restapp.R;
 
 
 /**

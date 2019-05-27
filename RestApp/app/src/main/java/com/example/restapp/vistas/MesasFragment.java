@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -212,7 +213,23 @@ public class MesasFragment extends Fragment {
         fila3 = view.findViewById(R.id.fila3);
         fila4 = view.findViewById(R.id.fila4);
         agregarBotones();
+      //  timer();
         return view;
+    }
+
+    public void  timer(){
+      /*  timer = new CountDownTimer(9000,9000){
+            public void onTick(long millisUntilfinished){
+
+            }
+
+            public void onFinish(){
+
+                timer.start();
+            }
+        };
+        timer.start();*/
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event

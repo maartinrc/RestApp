@@ -12,12 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.example.restapp.sw.ObjectRequest;
 import com.example.restapp.R;
 import com.example.restapp.pojos.Usuario;
+import com.example.restapp.sw.ObjectRequest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -69,8 +70,9 @@ public class UsuarioFragment extends Fragment {
 
     public void consume(){
         String url = "";
-        ObjectRequest objectRequest = new ObjectRequest<T>
-                (url, Request.Method.GET, null, Usuario.class, new Response.Listener<Usuario>() {
+        ObjectRequest objectRequest = new ObjectRequest<Usuario>
+                //Se movieron de lugar el url y put
+                ( Request.Method.GET,url, null, Usuario.class, new Response.Listener<Usuario>() {
 
                     @Override
                     public void onResponse(Usuario response) {
@@ -117,8 +119,9 @@ public class UsuarioFragment extends Fragment {
         parametros.put("contrasena",txtContrasena.getText().toString());
 
 
-        ObjectRequest objectRequest = new ObjectRequest<T>
-                (url, Request.Method.PUT, parametros, Usuario.class, new Response.Listener<Usuario>() {
+        ObjectRequest objectRequest = new ObjectRequest<Usuario>
+                //Se movieron de lugar el url y put
+                ( Request.Method.PUT,url, parametros, Usuario.class, new Response.Listener<Usuario>() {
 
                     @Override
                     public void onResponse(Usuario response) {
@@ -129,6 +132,7 @@ public class UsuarioFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
+                        Toast.makeText(getContext(),"No se pudo actualizar",Toast.LENGTH_LONG);
 
                     }
                 });
@@ -158,7 +162,7 @@ public class UsuarioFragment extends Fragment {
         mListener = null;
     }
 
- 
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

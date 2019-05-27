@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        String fuente = "fuentes/Righteous.ttf";
-        this.righteous = Typeface.createFromAsset(getAssets(),fuente);
+        //setContentView(R.layout.activity_main);
+       // String fuente = "fuentes/Righteous.ttf";
+      //  this.righteous = Typeface.createFromAsset(getAssets(),fuente);
     }
 }

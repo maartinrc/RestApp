@@ -3,6 +3,7 @@ package com.example.restapp.vistas;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
@@ -45,6 +46,21 @@ public class MenuActivity extends AppCompatActivity {
 
         Intent i = getIntent();
 
+        rv = findViewById(R.id.rv);
+        LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
+        rv.setLayoutManager(llm);
+        rv.setHasFixedSize(true);
+
+        rvBebidas = findViewById(R.id.rv_bebidas);
+        LinearLayoutManager llmBebidas = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
+        rvBebidas.setLayoutManager(llmBebidas);
+        rvBebidas.setHasFixedSize(true);
+
+        rvPostres = findViewById(R.id.rv_postres);
+        LinearLayoutManager llmPostres = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
+        rvPostres.setLayoutManager(llmPostres);
+        rvPostres.setHasFixedSize(true);
+
 
         piso = i.getIntExtra("piso",0);
         mesa =i.getIntExtra("mesa",0);
@@ -64,7 +80,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
    public void extraeDatos(){
-        String url = "/productos/";
+        String url = "http://10.55.108.44:8000/api/productos";
 
 
        ObjectRequest objectRequest = new ObjectRequest<Producto[]>
@@ -99,13 +115,18 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void inicilizarAdaptador(){
-        RVAdaptador adaptador = new RVAdaptador(platillo);
-        rv.setAdapter(adaptador);
+        try {
 
-        RVBebidaAdaptador adaptadorB = new RVBebidaAdaptador(bebidas);
-        rvBebidas.setAdapter(adaptadorB);
+            RVAdaptador adaptador = new RVAdaptador(platillo);
+            rv.setAdapter(adaptador);
 
-        RVPostreAdaptador adaptadorP = new RVPostreAdaptador(postres);
-        rvPostres.setAdapter(adaptadorP);
+            RVBebidaAdaptador adaptadorB = new RVBebidaAdaptador(bebidas);
+            rvBebidas.setAdapter(adaptadorB);
+
+            RVPostreAdaptador adaptadorP = new RVPostreAdaptador(postres);
+            rvPostres.setAdapter(adaptadorP);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

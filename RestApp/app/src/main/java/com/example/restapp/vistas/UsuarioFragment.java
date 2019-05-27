@@ -44,6 +44,7 @@ public class UsuarioFragment extends Fragment {
 
     public UsuarioFragment() {
         // Required empty public constructor
+
     }
 
 
@@ -54,7 +55,9 @@ public class UsuarioFragment extends Fragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+
         return fragment;
+
     }
 
     @Override
@@ -65,18 +68,19 @@ public class UsuarioFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        consume();
     }
 
     public void consume(){
-        String url = "";
+
+        String url = "http://10.55.108.44:8000/api/usuarios/1";
         ObjectRequest objectRequest = new ObjectRequest<Usuario>
                 //Se movieron de lugar el url y put
-                ( Request.Method.GET,url, null, Usuario.class, new Response.Listener<Usuario>() {
+                ( 0,url, null,Usuario.class, new Response.Listener<Usuario>() {
 
                     @Override
                     public void onResponse(Usuario response) {
-                        txtId.setText( response.getId());
+                        Toast.makeText(getContext(),"Si entro",Toast.LENGTH_LONG).show();
+                        txtId.setText(response.getId());
                         txtNombre.setText(response.getNombre());
                         txtApellido.setText(response.getApellido());
                         txtContrasena.setText(response.getContrasena());
@@ -89,6 +93,7 @@ public class UsuarioFragment extends Fragment {
                         Toast.makeText(getContext(),"Error al recibir datos",Toast.LENGTH_LONG).show();
                     }
                 });
+
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -103,13 +108,18 @@ public class UsuarioFragment extends Fragment {
             btnGuardar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    actualiza();
+
+                    consume();
+                 //   actualiza();
                 }
             });
+
+
         return v;
     }
     public void actualiza(){
-        String url = "/usuario/"+ Integer.parseInt(txtId.getText().toString()) ;
+     //   String url = "/usuario/"+ Integer.parseInt(txtId.getText().toString()) ;
+        String url = "http//10.55.108.44:8000/api/usuarios/1" ;
         Map<String,Object> parametros = new HashMap<>();
 
         //Preguntar si hay que adaptar los String a como están escritos en la bd

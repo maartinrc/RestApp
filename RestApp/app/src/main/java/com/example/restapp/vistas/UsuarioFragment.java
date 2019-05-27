@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,15 +72,15 @@ public class UsuarioFragment extends Fragment {
     }
 
     public void consume(){
-
-        String url = "http://10.55.108.44:8000/api/usuarios/1";
+        String url = "http://127.0.0.1:8000/api/usuarios/1";
         ObjectRequest objectRequest = new ObjectRequest<Usuario>
                 //Se movieron de lugar el url y put
                 ( 0,url, null,Usuario.class, new Response.Listener<Usuario>() {
 
+
                     @Override
                     public void onResponse(Usuario response) {
-                        Toast.makeText(getContext(),"Si entro",Toast.LENGTH_LONG).show();
+
                         txtId.setText(response.getId());
                         txtNombre.setText(response.getNombre());
                         txtApellido.setText(response.getApellido());

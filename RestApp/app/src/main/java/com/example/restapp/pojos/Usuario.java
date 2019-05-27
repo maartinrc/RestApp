@@ -1,21 +1,19 @@
 package com.example.restapp.pojos;
 
 public class Usuario {
-    int id;
-    String usuario;
-    String contrasena;
-    String nombre;
-    String apellido;
-    String rutaFoto;
-    int status;
+    private int id;
+    private String usuario;
+    private String contrasena;
+    private String nombre;
+    private String apellido;
+    private int status;
 
-    public Usuario(int id, String usuario, String contrasena, String nombre, String apellido, String rutaFoto, int status) {
+    public Usuario(int id, String usuario, String contrasena, String nombre, String apellido,  int status) {
         this.id = id;
         this.usuario = usuario;
         this.contrasena = contrasena;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.rutaFoto = rutaFoto;
         this.status = status;
     }
 

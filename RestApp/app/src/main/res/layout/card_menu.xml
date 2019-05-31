@@ -81,6 +81,7 @@
                     android:text=""
                     android:inputType=""
                     android:enabled="false"
+                    android:textAlignment="center"
                     />
 
                 <Button

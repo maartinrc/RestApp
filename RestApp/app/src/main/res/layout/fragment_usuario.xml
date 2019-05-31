@@ -34,7 +34,7 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="390dp"
+                android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:text="@string/ID"
                 android:layout_marginTop="8dp"
@@ -42,7 +42,7 @@
 
             <EditText
                 android:id="@+id/txtId"
-                android:layout_width="390dp"
+                android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -50,7 +50,7 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="390dp"
+                android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:text="@string/nombre"
                 android:layout_marginTop="8dp"
@@ -58,14 +58,14 @@
 
             <EditText
                 android:id="@+id/txtNombre"
-                android:layout_width="390dp"
+                android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:ems="10"
                 android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="390dp"
+                android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:text="@string/apellidos"
                 android:layout_marginTop="8dp"
@@ -73,14 +73,14 @@
 
             <EditText
                 android:id="@+id/txtApellidos"
-                android:layout_width="390dp"
+                android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:ems="10"
                 android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="390dp"
+                android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:text="@string/contrasenia"
                 android:layout_marginTop="8dp"
@@ -88,7 +88,7 @@
 
             <EditText
                 android:id="@+id/txtContrasenia"
-                android:layout_width="390dp"
+                android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:ems="10"
                 android:inputType="textPersonName" />
@@ -96,7 +96,7 @@
             <Button
                 android:id="@+id/btn_guardar_c_usuario"
                 style="@android:style/Widget.Material.Light.Button.Inset"
-                android:layout_width="390dp"
+                android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:layout_marginTop="28dp"
                 android:background="@color/colorPrimaryDark"

@@ -53,24 +53,30 @@ public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.Po
                     case R.id.btn_agregar_orden_postre:
 
                         break;
-                    case R.id.btn_mas_postre:
-
-                        cantidad++;
-                        if (cantidad >15){
-                            cantidad = 15;
-                        }
-                        postreViewHolder.txtCantidad.setText(String.valueOf(cantidad));
-
-                        break;
-                    case R.id.btn_menos_postre:
-                        cantidad--;
-                        if (cantidad < 0){
-                            cantidad = 0;
-                        }
-                        postreViewHolder.txtCantidad.setText(String.valueOf(cantidad));
-
-                        break;
                 }
+
+            }
+        });
+        postreViewHolder.btnmas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cantidad++;
+                if (cantidad >15){
+                    cantidad = 15;
+                }
+                postreViewHolder.txtCantidad.setText(String.valueOf(cantidad));
+            }
+        });
+
+        postreViewHolder.btnmenos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cantidad--;
+                if (cantidad < 0){
+                    cantidad = 0;
+                }
+                postreViewHolder.txtCantidad.setText(String.valueOf(cantidad));
+
             }
         });
     }
@@ -94,6 +100,8 @@ public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.Po
         ImageView postreFoto;
         Button btnOrdenPostre;
         EditText txtCantidad;
+        Button btnmas;
+        Button btnmenos;
 
         public PostreViewHolder(View itemView){
             super(itemView);
@@ -105,6 +113,9 @@ public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.Po
 
             btnOrdenPostre = itemView.findViewById(R.id.btn_agregar_orden_postre);
             txtCantidad = itemView.findViewById(R.id.txtCantidad_postre);
+
+            btnmas = itemView.findViewById(R.id.btn_mas_postre);
+            btnmenos = itemView.findViewById(R.id.btn_menos_postre);
         }
     }
 }

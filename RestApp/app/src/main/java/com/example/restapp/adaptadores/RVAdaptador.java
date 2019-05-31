@@ -54,27 +54,32 @@ public class RVAdaptador extends RecyclerView.Adapter<RVAdaptador.PlatilloViewHo
                     case R.id.btn_agregar_orden_postre:
 
                         break;
-                    case R.id.btn_mas_platillo:
 
-                        cantidad++;
-                        if (cantidad >15){
-                            cantidad = 15;
-                        }
-                        platilloViewHolder.txtCantidad.setText(String.valueOf(cantidad));
-
-                        break;
-                    case R.id.btn_menos_platillo:
-                        cantidad--;
-                        if (cantidad < 0){
-                            cantidad = 0;
-                        }
-                        platilloViewHolder.txtCantidad.setText(String.valueOf(cantidad));
-
-                        break;
                 }
             }
         });
+        platilloViewHolder.btnmas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cantidad++;
+                if (cantidad >15){
+                    cantidad = 15;
+                }
+                platilloViewHolder.txtCantidad.setText(String.valueOf(cantidad));
+            }
+        });
 
+        platilloViewHolder.btnmenos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cantidad--;
+                if (cantidad < 0){
+                    cantidad = 0;
+                }
+                platilloViewHolder.txtCantidad.setText(String.valueOf(cantidad));
+
+            }
+        });
     }
 
     @Override
@@ -96,6 +101,8 @@ public class RVAdaptador extends RecyclerView.Adapter<RVAdaptador.PlatilloViewHo
         ImageView platilloFoto;
         Button btnOrden;
         EditText txtCantidad;
+        Button btnmas;
+        Button btnmenos;
 
 
         public PlatilloViewHolder(View itemView) {
@@ -109,6 +116,8 @@ public class RVAdaptador extends RecyclerView.Adapter<RVAdaptador.PlatilloViewHo
             btnOrden = itemView.findViewById(R.id.btn_agregar_orden);
             txtCantidad = itemView.findViewById(R.id.txtCantidad_platillo);
 
+            btnmas = itemView.findViewById(R.id.btn_mas_platillo);
+            btnmenos = itemView.findViewById(R.id.btn_menos_platillo);
         }
     }
 }

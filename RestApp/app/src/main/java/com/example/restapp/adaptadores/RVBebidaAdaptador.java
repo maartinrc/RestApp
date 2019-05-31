@@ -51,24 +51,31 @@ public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.Be
                     case R.id.btn_agregar_orden_bebida:
 
                         break;
-                    case R.id.btn_mas_bebida:
 
-                        cantidad++;
-                        if (cantidad >15){
-                            cantidad = 15;
-                        }
-                        bebidaViewHolder.txtCantidad.setText(String.valueOf(cantidad));
-
-                        break;
-                    case R.id.btn_menos_bebida:
-                        cantidad--;
-                        if (cantidad < 0){
-                            cantidad = 0;
-                        }
-                        bebidaViewHolder.txtCantidad.setText(String.valueOf(cantidad));
-
-                        break;
                 }
+            }
+        });
+
+        bebidaViewHolder.btnmas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cantidad++;
+                if (cantidad >15){
+                    cantidad = 15;
+                }
+                bebidaViewHolder.txtCantidad.setText(String.valueOf(cantidad));
+            }
+        });
+
+        bebidaViewHolder.btnmenos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cantidad--;
+                if (cantidad < 0){
+                    cantidad = 0;
+                }
+                bebidaViewHolder.txtCantidad.setText(String.valueOf(cantidad));
+
             }
         });
     }
@@ -92,6 +99,8 @@ public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.Be
         ImageView bebidaFoto;
         Button btnOrdenBebida;
         EditText txtCantidad;
+        Button btnmas;
+        Button btnmenos;
 
         public BebidaViewHolder(View itemView){
             super(itemView);
@@ -100,9 +109,12 @@ public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.Be
             descripcionBebida = itemView.findViewById(R.id.descripcion_bebida);
             precioBebida = itemView.findViewById(R.id.precio_bebida);
             bebidaFoto = itemView.findViewById(R.id.bebida_foto);
+
             btnOrdenBebida = itemView.findViewById(R.id.btn_agregar_orden_bebida);
             txtCantidad = itemView.findViewById(R.id.txtCantidad_bebida);
 
+            btnmas = itemView.findViewById(R.id.btn_mas_bebida);
+            btnmenos = itemView.findViewById(R.id.btn_menos_bebida);
         }
     }
 

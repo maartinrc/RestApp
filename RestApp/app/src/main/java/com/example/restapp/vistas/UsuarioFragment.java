@@ -84,7 +84,7 @@ public class UsuarioFragment extends Fragment {
     }
 
     public void sustituirDatos(){
-        SharedPreferences preferences = getContext().getSharedPreferences("login",MODE_PRIVATE);
+        SharedPreferences preferences = getActivity().getSharedPreferences("login",MODE_PRIVATE);
 
 
         txtId.setText(preferences.getString("usuarioAPI","Id"));

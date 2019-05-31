@@ -1,6 +1,7 @@
 package com.example.restapp.vistas;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,15 +15,25 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.restapp.R;
 import com.example.restapp.pojos.Usuario;
 import com.example.restapp.sw.ObjectRequest;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.restapp.vistas.Login.MY_DEFAULT_TIMEOUT;
 
 
 public class UsuarioFragment extends Fragment {
@@ -36,6 +47,7 @@ public class UsuarioFragment extends Fragment {
     EditText txtContrasena;
     EditText txtId;
     Button btnGuardar;
+    RequestQueue requestQueue ;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -71,31 +83,80 @@ public class UsuarioFragment extends Fragment {
 
     }
 
-    public void consume(){
-        String url = "http://127.0.0.1:8000/api/usuarios/1";
-        ObjectRequest objectRequest = new ObjectRequest<Usuario>
-                //Se movieron de lugar el url y put
-                ( 0,url, null,Usuario.class, new Response.Listener<Usuario>() {
+    public void sustituirDatos(){
+        SharedPreferences preferences = getContext().getSharedPreferences("login",MODE_PRIVATE);
 
 
+        txtId.setText(preferences.getString("usuarioAPI","Id"));
+        txtContrasena.setText(preferences.getString("contrasenaAPI","Contraseña"));
+        txtNombre.setText(preferences.getString("nombreAPI","Nombre(s)"));
+        txtApellido.setText(preferences.getString("apellidoAPI","Apellido(s)"));
+    }
+    public boolean consume(){
+            requestQueue = Volley.newRequestQueue(getContext());
+
+        StringRequest strq;
+        String id =getContext().getSharedPreferences("login",MODE_PRIVATE).getString("usuario","");
+        String BASEURL = "http://192.168.1.108:8000/api/usuarios/"+id;
+
+        strq = new StringRequest(Request.Method.GET, BASEURL,
+                new Response.Listener<String>() {
                     @Override
-                    public void onResponse(Usuario response) {
-
-                        txtId.setText(response.getId());
-                        txtNombre.setText(response.getNombre());
-                        txtApellido.setText(response.getApellido());
-                        txtContrasena.setText(response.getContrasena());
+                    public void onResponse(String response) {
+                        Log.d("rta_servidor", response);
+                        Toast.makeText(getContext(), response, Toast.LENGTH_LONG).show();
+                        obtenerDatos(response);
+                        //Conectarse a web service y verificar usr y pass
                     }
                 }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("error_servidorrrrrrrrrr", error.toString());
 
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // TODO Auto-generated method stub
-                        Toast.makeText(getContext(),"Error al recibir datos",Toast.LENGTH_LONG).show();
-                    }
-                });
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams()  {
+                Map<String, String> parametros = new HashMap<>();
+
+
+                return parametros;
+            }
+        };
+        strq.setRetryPolicy(new DefaultRetryPolicy(
+                MY_DEFAULT_TIMEOUT,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(strq);
+        return true;
+
 
     }
+    public void obtenerDatos(String res){
+        final Context ctx = getContext();
+        try{
+            JSONObject objetc = new JSONObject(res);
+            String success = objetc.get("success").toString();
+            String result = objetc.get("result").toString();
+            String errors = objetc.get("errors").toString();
+
+            if (success.equals("true")){
+                JSONObject json_result = new JSONObject(result);
+                txtId.setText(json_result.getString("id"));
+                txtNombre.setText(json_result.getString("nombre"));
+                txtApellido.setText(json_result.getString("apellido"));
+                txtContrasena.setText(json_result.getString("contrasena"));
+
+            }else{
+                Toast.makeText(ctx, "Error: " + errors, Toast.LENGTH_SHORT).show();
+            }
+        }catch (JSONException e){
+            e.getMessage();
+            Toast.makeText(ctx,"Error" + e, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -109,8 +170,8 @@ public class UsuarioFragment extends Fragment {
             btnGuardar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    sustituirDatos();
 
-                    consume();
                  //   actualiza();
                 }
             });

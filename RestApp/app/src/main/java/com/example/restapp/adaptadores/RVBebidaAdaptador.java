@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.restapp.R;
 import com.example.restapp.pojos.Bebida;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.Be
     public void onBindViewHolder (final BebidaViewHolder bebidaViewHolder, int i){
         bebidaViewHolder.nombreBebida.setText(bebidas.get(i).getNombre());
         bebidaViewHolder.descripcionBebida.setText(bebidas.get(i).getDescripcion());
-        bebidaViewHolder.bebidaFoto.setImageResource(bebidas.get(i).getFotoID());
+        Picasso.get().load(bebidas.get(i).getFotoID()).into(bebidaViewHolder.bebidaFoto);
         bebidaViewHolder.precioBebida.setText(bebidas.get(i).getPrecio());
 
         bebidaViewHolder.btnOrdenBebida.setText("Agregar "+ bebidas.get(i).getNombre() + " a tu orden");
@@ -50,7 +51,7 @@ public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.Be
                     case R.id.btn_agregar_orden_bebida:
 
                         break;
-                    case R.id.btn_mas:
+                    case R.id.btn_mas_bebida:
 
                         cantidad++;
                         if (cantidad >15){
@@ -59,7 +60,7 @@ public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.Be
                         bebidaViewHolder.txtCantidad.setText(String.valueOf(cantidad));
 
                         break;
-                    case R.id.btn_menos:
+                    case R.id.btn_menos_bebida:
                         cantidad--;
                         if (cantidad < 0){
                             cantidad = 0;
@@ -100,7 +101,7 @@ public class RVBebidaAdaptador extends RecyclerView.Adapter<RVBebidaAdaptador.Be
             precioBebida = itemView.findViewById(R.id.precio_bebida);
             bebidaFoto = itemView.findViewById(R.id.bebida_foto);
             btnOrdenBebida = itemView.findViewById(R.id.btn_agregar_orden_bebida);
-            txtCantidad = itemView.findViewById(R.id.txtCantidad);
+            txtCantidad = itemView.findViewById(R.id.txtCantidad_bebida);
 
         }
     }

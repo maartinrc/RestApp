@@ -3,14 +3,14 @@ package com.example.restapp.pojos;
 public class Bebida {
     String nombre;
     String descripcion;
-    int fotoID;
+    String fotoID;
     String precio;
 
     public Bebida(){
 
     }
 
-    public Bebida(String nombre, String descripcion, int fotoID, String precio) {
+    public Bebida(String nombre, String descripcion, String fotoID, String precio) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fotoID = fotoID;
@@ -33,11 +33,11 @@ public class Bebida {
         this.descripcion = descripcion;
     }
 
-    public int getFotoID() {
+    public String getFotoID() {
         return fotoID;
     }
 
-    public void setFotoID(int fotoID) {
+    public void setFotoID(String fotoID) {
         this.fotoID = fotoID;
     }
 

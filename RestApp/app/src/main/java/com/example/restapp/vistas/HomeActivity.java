@@ -1,6 +1,7 @@
 package com.example.restapp.vistas;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -93,6 +94,12 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case R.id.nav_logout:
                 title = R.string.menu_logout;
+                if(getSharedPreferences("login",MODE_PRIVATE).edit().clear().commit()){
+                    Intent i = new Intent(this,Login.class);
+                    this.startActivity(i);
+                }
+
+
                 //borrar shared preferences
                 //Intent a Main activity que verificará si hay un shared preferences con id y pass
                 ///si no, Intent al login

@@ -1,9 +1,12 @@
 package com.example.restapp.vistas;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.util.Log;
 
 
 /*TODO -------------- LEER -------------------
@@ -23,5 +26,20 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_main);
        // String fuente = "fuentes/Righteous.ttf";
       //  this.righteous = Typeface.createFromAsset(getAssets(),fuente);
+
+        SharedPreferences credenciales = getSharedPreferences("login", Context.MODE_PRIVATE);
+        String username = credenciales.getString("usuario",null);
+        String password = credenciales.getString("contrasena",null);
+
+        if(username != null && password != null){
+            Intent intent = new Intent(this,HomeActivity.class);
+            this.startActivity(intent);
+
+        }else{
+            Intent intent = new Intent(this, Login.class);
+            this.startActivity(intent);
+        }
+
+
     }
 }

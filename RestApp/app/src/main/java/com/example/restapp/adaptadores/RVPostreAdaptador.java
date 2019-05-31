@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.restapp.R;
 import com.example.restapp.pojos.Postre;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.Po
     public void onBindViewHolder(final PostreViewHolder postreViewHolder, int i){
         postreViewHolder.nombrePostre.setText(postres.get(i).getNombre());
         postreViewHolder.descripcionPostre.setText(postres.get(i).getDescripcion());
-        postreViewHolder.postreFoto.setImageResource(postres.get(i).getFotoID());
+        Picasso.get().load(postres.get(i).getFotoID()).into(postreViewHolder.postreFoto);
         postreViewHolder.precioPostre.setText(postres.get(i).getPrecio());
 
         postreViewHolder.btnOrdenPostre.setText("Agregar "+ postres.get(i).getNombre()+" a tu orden");
@@ -52,7 +53,7 @@ public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.Po
                     case R.id.btn_agregar_orden_postre:
 
                         break;
-                    case R.id.btn_mas:
+                    case R.id.btn_mas_postre:
 
                         cantidad++;
                         if (cantidad >15){
@@ -61,7 +62,7 @@ public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.Po
                         postreViewHolder.txtCantidad.setText(String.valueOf(cantidad));
 
                         break;
-                    case R.id.btn_menos:
+                    case R.id.btn_menos_postre:
                         cantidad--;
                         if (cantidad < 0){
                             cantidad = 0;
@@ -96,14 +97,14 @@ public class RVPostreAdaptador extends RecyclerView.Adapter<RVPostreAdaptador.Po
 
         public PostreViewHolder(View itemView){
             super(itemView);
-            cv = itemView.findViewById(R.id.cv);
+            cv = itemView.findViewById(R.id.cv_postre);
             nombrePostre = itemView.findViewById(R.id.nombre_postre);
             descripcionPostre = itemView.findViewById(R.id.descripcion_postre);
             precioPostre = itemView.findViewById(R.id.precio_postre);
             postreFoto = itemView.findViewById(R.id.postre_foto);
 
             btnOrdenPostre = itemView.findViewById(R.id.btn_agregar_orden_postre);
-            txtCantidad = itemView.findViewById(R.id.txtCantidad);
+            txtCantidad = itemView.findViewById(R.id.txtCantidad_postre);
         }
     }
 }

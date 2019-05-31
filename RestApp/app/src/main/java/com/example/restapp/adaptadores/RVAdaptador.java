@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.restapp.R;
 import com.example.restapp.pojos.Platillo;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class RVAdaptador extends RecyclerView.Adapter<RVAdaptador.PlatilloViewHo
     public void onBindViewHolder(final PlatilloViewHolder platilloViewHolder, int i){
         platilloViewHolder.nombrePlatillo.setText(platillos.get(i).getNombre());
         platilloViewHolder.descripcionPlatillo.setText(platillos.get(i).getDescripcion());
-        platilloViewHolder.platilloFoto.setImageResource(platillos.get(i).getFotoID());
+        Picasso.get().load(platillos.get(i).getFotoID()).into(platilloViewHolder.platilloFoto);
         platilloViewHolder.precioPlatillo.setText(platillos.get(i).getPrecio());
 
         platilloViewHolder.btnOrden.setText("agregar "+platillos.get(i).getNombre()+" a tu orden");
@@ -53,7 +54,7 @@ public class RVAdaptador extends RecyclerView.Adapter<RVAdaptador.PlatilloViewHo
                     case R.id.btn_agregar_orden_postre:
 
                         break;
-                    case R.id.btn_mas:
+                    case R.id.btn_mas_platillo:
 
                         cantidad++;
                         if (cantidad >15){
@@ -62,7 +63,7 @@ public class RVAdaptador extends RecyclerView.Adapter<RVAdaptador.PlatilloViewHo
                         platilloViewHolder.txtCantidad.setText(String.valueOf(cantidad));
 
                         break;
-                    case R.id.btn_menos:
+                    case R.id.btn_menos_platillo:
                         cantidad--;
                         if (cantidad < 0){
                             cantidad = 0;
@@ -106,7 +107,7 @@ public class RVAdaptador extends RecyclerView.Adapter<RVAdaptador.PlatilloViewHo
             precioPlatillo = itemView.findViewById(R.id.precio_platillo);
 
             btnOrden = itemView.findViewById(R.id.btn_agregar_orden);
-            txtCantidad = itemView.findViewById(R.id.txtCantidad);
+            txtCantidad = itemView.findViewById(R.id.txtCantidad_platillo);
 
         }
     }

@@ -67,7 +67,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_menos"
+                    android:id="@+id/btn_menos_platillo"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorPrimary"
@@ -75,7 +75,7 @@
                     android:textColor="#FFF" />
 
                 <EditText
-                    android:id="@+id/txtCantidad"
+                    android:id="@+id/txtCantidad_platillo"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:text=""
@@ -84,7 +84,7 @@
                     />
 
                 <Button
-                    android:id="@+id/btn_mas"
+                    android:id="@+id/btn_mas_platillo"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorPrimary"
